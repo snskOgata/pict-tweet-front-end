@@ -6,9 +6,9 @@ import SignInUser from './Components/SignInUser'
 import Root from './Components/Root'
 
 function App() {
-  const requireSignIn = generateRequireSignInWrapper({
-    redirectPathIfNotSignedIn: "/signin",
-  })
+  // const requireSignIn = generateRequireSignInWrapper({
+  //   redirectPathIfNotSignedIn: "/signin",
+  // })
 
   return (
     <div className="App">
