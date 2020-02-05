@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import { createBrowserHistory } from 'history';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import createStore from './createStore';
 
@@ -17,4 +18,5 @@ ReactDOM.render(
     </ConnectedRouter>
   </Provider>
 
-  , document.getElementById('root'));
+  , document.getElementById('root')
+);
