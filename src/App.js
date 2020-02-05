@@ -1,25 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import { generateRequireSignInWrapper } from "redux-token-auth";
 
 function App() {
+  const requireSignIn = generateRequireSignInWrapper({
+    redirectPathIfNotSignedIn: "/signin",
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={requireSignIn(Root)} />
+          <Route exact path="/signIn" component={SignInUser} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

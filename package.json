@@ -15,7 +15,8 @@
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "3.3.1",
     "redux": "^4.0.5",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "redux-token-auth": "^0.19.0"
   },
   "scripts": {
     "start": "react-scripts start",
