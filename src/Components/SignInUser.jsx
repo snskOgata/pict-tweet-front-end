@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { Form, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 export default class SigninUser extends React.Component {
   constructor(props) {
@@ -32,8 +33,19 @@ export default class SigninUser extends React.Component {
     this.setState({ password_confirmation: e.target.value });
   }
   handleSubmit(event) {
-    alert('Name: ' + this.state.name + "\nemail: " + this.state.email);
     event.preventDefault();
+    axios.post('http://localhost:3001/auth', {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      password_confirmation: this.state.password_confirmation,
+    }).catch(error => {
+      const {
+        status,
+        statusText
+      } = error.response;
+      console.log(`Error! HTTP Status: ${status} ${statusText}`);
+    });
   }
 
   render() {
