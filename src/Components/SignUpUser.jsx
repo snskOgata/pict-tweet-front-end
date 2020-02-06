@@ -62,6 +62,7 @@ class SignUpUser extends React.Component {
     registerUser({ name, email, password }) // <-<-<-<-<- here's the important part <-<-<-<-<-
       .then(() => {
         console.log("成功")
+        this.props.history.push('/')
       })
       .catch(error => {
         const {

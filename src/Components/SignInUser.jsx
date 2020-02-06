@@ -35,6 +35,7 @@ class SignInUser extends React.Component {
     signIn({ email, password })
       .then(() => {
         console.log("成功")
+        this.props.history.push('/')
       })
       .catch(error => {
         const {
