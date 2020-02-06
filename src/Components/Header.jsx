@@ -13,6 +13,7 @@ export default class Header extends React.Component {
     signOutUser()
       .then(() => {
         console.log("成功")
+        this.props.history.push('/')
       })
       .catch(error => {
         const {
@@ -32,7 +33,7 @@ export default class Header extends React.Component {
           {this.props.currentUser.isSignedIn ? (
             <Link to='/#' onClick={this.signOut}>ログアウト</Link>
           ) : (
-              <Link to="/signUp">新規登録</Link>
+              <Link to="/sign_up">新規登録</Link>
             )
           }
         </>

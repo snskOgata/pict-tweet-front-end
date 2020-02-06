@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap';
 
 
 export default class Root extends React.Component {
@@ -15,7 +16,14 @@ export default class Root extends React.Component {
               <p>email: {this.props.currentUser.attributes.email}</p>
             </>
           ) : (
-              <Link to="/signUp">新規登録</Link>
+              <>
+                <Link to="/sign_up" style={{ marginRight: '20px' }}>
+                  <Button>新規登録</Button>
+                </Link>
+                <Link to="/sign_in">
+                  <Button>ログイン</Button>
+                </Link>
+              </>
             )}
         </div>
       </div >
