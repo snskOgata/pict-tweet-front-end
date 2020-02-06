@@ -51,7 +51,7 @@ export default class SigninUser extends React.Component {
   render() {
     return (
       <div style={{ width: '50%', padding: '20px', margin: '0 auto' }}>
-        <Link to='/'>Homeに戻る</Link>
+        <h1>新規登録ページ</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId="name">
             <Form.Label>Name:</Form.Label>
@@ -73,6 +73,8 @@ export default class SigninUser extends React.Component {
             Submit
           </Button>
         </Form>
+        <hr />
+        <Link to='/'>Homeに戻る</Link>
       </div >
     );
   }

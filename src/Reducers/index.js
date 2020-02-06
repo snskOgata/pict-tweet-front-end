@@ -1,1 +1,1 @@
-export const noop = (state = {}) => state
+export { default as devise } from './devise'

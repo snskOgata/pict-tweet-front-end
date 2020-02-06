@@ -7,6 +7,9 @@ import Root from './Components/Root'
 
 export default class App extends React.Component {
   render() {
+    // const requireSignIn = generateRequireSignInWrapper({
+    //   redirectPathIfNotSignedIn: "/signin",
+    // });
 
     return (
       <div className="App" >
