@@ -5,6 +5,7 @@ import { generateRequireSignInWrapper } from "redux-token-auth";
 import Header from './Containers/Header';
 import SignUpUser from './Components/SignUpUser';
 import SignInUser from './Components/SignInUser';
+import NewTweet from './Components/NewTweet'
 import Root from './Containers/Root';
 
 export default class App extends React.Component {
@@ -24,6 +25,7 @@ export default class App extends React.Component {
               <Route exact path="/" component={Root} />
               <Route exact path="/sign_up" component={SignUpUser} />
               <Route exact path="/sign_in" component={SignInUser} />
+              <Route exact path="/tweets/new" component={NewTweet} />
               {/* <Route exact path="/" component={requireSignIn(MyPage)} /> */}
             </Switch>
           </div>

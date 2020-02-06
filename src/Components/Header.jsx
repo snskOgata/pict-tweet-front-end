@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-
+import { Button } from 'react-bootstrap';
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -31,11 +31,22 @@ export default class Header extends React.Component {
         </>
         <>
           {this.props.currentUser.isSignedIn ? (
-            <Link to='/#' onClick={this.signOut}>ログアウト</Link>
+            <dev>
+              <Link to='/tweets/new'>
+                <Button variant="outline-light">新規投稿</Button>
+              </Link>
+              <Link to='/#' onClick={this.signOut} style={{ marginLeft: '10px' }}>
+                <Button variant="outline-light">ログアウト</Button>
+              </Link>
+            </dev>
           ) : (
               <div>
-                <Link to="/sign_up">新規登録</Link>
-                <Link to="/sign_in" style={{ marginLeft: '10px' }}>ログイン</Link>
+                <Link to="/sign_up">
+                  <Button variant="outline-light">新規登録</Button>
+                </Link>
+                <Link to="/sign_in" style={{ marginLeft: '10px' }}>
+                  <Button variant="outline-light">ログイン</Button>
+                </Link>
               </div>
             )
           }
