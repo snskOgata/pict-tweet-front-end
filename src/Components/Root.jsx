@@ -15,7 +15,7 @@ export default class Root extends React.Component {
               <p>email: {this.props.currentUser.attributes.email}</p>
             </>
           ) : (
-              <Link to="/signIn">新規登録</Link>
+              <Link to="/signUp">新規登録</Link>
             )}
         </div>
       </div >

@@ -32,7 +32,7 @@ export default class Header extends React.Component {
           {this.props.currentUser.isSignedIn ? (
             <Link to='/#' onClick={this.signOut}>ログアウト</Link>
           ) : (
-              <Link to="/signIn">新規登録</Link>
+              <Link to="/signUp">新規登録</Link>
             )
           }
         </>

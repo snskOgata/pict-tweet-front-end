@@ -5,7 +5,7 @@ import axios from 'axios';
 import { connect } from 'react-redux'
 import { registerUser } from '../redux-token-auth-config'
 
-class SigninUser extends React.Component {
+class SignUpUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -108,4 +108,4 @@ class SigninUser extends React.Component {
 export default connect(
   null,
   { registerUser },
-)(SigninUser)
+)(SignUpUser)
