@@ -7,12 +7,17 @@ export default class Root extends React.Component {
     return (
       <div>
         <h1>Hello, world</h1>
-        {!this.props.currentUser.isSignedIn && (
-          <Link to="/signIn">新規登録</Link>
-        )}
-        <p> id: {this.props.currentUser.attributes.id}</p>
-        <p>name: {this.props.currentUser.attributes.name}</p>
-        <p>email: {this.props.currentUser.attributes.email}</p>
+        <div>
+          {this.props.currentUser.isSignedIn ? (
+            <>
+              <p> id: {this.props.currentUser.attributes.id}</p>
+              <p>name: {this.props.currentUser.attributes.name}</p>
+              <p>email: {this.props.currentUser.attributes.email}</p>
+            </>
+          ) : (
+              <Link to="/signIn">新規登録</Link>
+            )}
+        </div>
       </div >
     );
   }

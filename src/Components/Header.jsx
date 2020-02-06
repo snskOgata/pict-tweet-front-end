@@ -3,6 +3,25 @@ import { Link } from 'react-router-dom'
 
 
 export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.signOut = this.signOut.bind(this)
+  }
+  signOut(e) {
+    e.preventDefault()
+    const { signOutUser } = this.props
+    signOutUser()
+      .then(() => {
+        console.log("成功")
+      })
+      .catch(error => {
+        const {
+          status,
+          statusText
+        } = error.response;
+        console.log(`Error! HTTP Status: ${status} ${statusText}`);
+      })
+  }
   render() {
     return (
       <div className='header'>
@@ -11,7 +30,7 @@ export default class Header extends React.Component {
         </>
         <>
           {this.props.currentUser.isSignedIn ? (
-            <Link to='/#'>ログアウト</Link>
+            <Link to='/#' onClick={this.signOut}>ログアウト</Link>
           ) : (
               <Link to="/signIn">新規登録</Link>
             )
