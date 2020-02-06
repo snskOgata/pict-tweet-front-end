@@ -1,1 +1,1 @@
-export { default as devise } from './devise'
+export { default as tokenAuth } from './devise'

@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
+import { connect } from 'react-redux'
+import { registerUser } from '../redux-token-auth-config'
 
-export default class SigninUser extends React.Component {
+class SigninUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +19,8 @@ export default class SigninUser extends React.Component {
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
     this.handleChangePasswordConfirmation = this.handleChangePasswordConfirmation.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.submitForm = this.submitForm.bind(this);
   }
 
   handleChangeName(e) {
@@ -32,27 +35,49 @@ export default class SigninUser extends React.Component {
   handleChangePasswordConfirmation(e) {
     this.setState({ password_confirmation: e.target.value });
   }
-  handleSubmit(event) {
-    event.preventDefault();
-    axios.post('http://localhost:3001/auth', {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-      password_confirmation: this.state.password_confirmation,
-    }).catch(error => {
-      const {
-        status,
-        statusText
-      } = error.response;
-      console.log(`Error! HTTP Status: ${status} ${statusText}`);
-    });
+  // handleSubmit(event) {
+  //   event.preventDefault();
+  //   axios.post('http://localhost:3001/auth', {
+  //     name: this.state.name,
+  //     email: this.state.email,
+  //     password: this.state.password,
+  //     password_confirmation: this.state.password_confirmation,
+  //   }).catch(error => {
+  //     const {
+  //       status,
+  //       statusText
+  //     } = error.response;
+  //     console.log(`Error! HTTP Status: ${status} ${statusText}`);
+  //   });
+
+
+  submitForm(e) {
+    e.preventDefault()
+    const { registerUser } = this.props
+    const {
+      name,
+      email,
+      password,
+    } = this.state
+    registerUser({ name, email, password }) // <-<-<-<-<- here's the important part <-<-<-<-<-
+      .then(() => {
+        console.log("成功")
+      })
+      .catch(error => {
+        const {
+          status,
+          statusText
+        } = error.response;
+        console.log(`Error! HTTP Status: ${status} ${statusText}`);
+      })
   }
+
 
   render() {
     return (
       <div style={{ width: '50%', padding: '20px', margin: '0 auto' }}>
         <h1>新規登録ページ</h1>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.submitForm}>
           <Form.Group controlId="name">
             <Form.Label>Name:</Form.Label>
             <Form.Control type="text" value={this.state.name} onChange={this.handleChangeName} />
@@ -79,3 +104,8 @@ export default class SigninUser extends React.Component {
     );
   }
 }
+
+export default connect(
+  null,
+  { registerUser },
+)(SigninUser)

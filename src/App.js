@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-// import { generateRequireSignInWrapper } from "redux-token-auth";
-import SignInUser from './Components/SignInUser'
-import Root from './Components/Root'
+import { generateRequireSignInWrapper } from "redux-token-auth";
+import Header from './Containers/Header';
+import SignInUser from './Components/SignInUser';
+import Root from './Containers/Root';
 
 export default class App extends React.Component {
   render() {
@@ -13,6 +14,7 @@ export default class App extends React.Component {
 
     return (
       <div className="App" >
+        <Header />
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Root} />

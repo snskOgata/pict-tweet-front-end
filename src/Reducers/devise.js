@@ -1,5 +1,5 @@
 const initialState = {
-  reduxTokenAuth: {
+  tokenAuth: {
     currentUser: {
       isLoading: false,
       isSignedIn: false,

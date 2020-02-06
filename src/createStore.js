@@ -13,7 +13,7 @@ export default function createStore(history) {
   return reduxCreateStore(
     combineReducers({
       ...reducers,
-      tokenAuthReducer: reduxTokenAuthReducer,
+      tokenAuth: reduxTokenAuthReducer,
       router: routerReducer,
     }),
     applyMiddleware(
