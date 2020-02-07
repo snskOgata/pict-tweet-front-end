@@ -29,6 +29,23 @@ export default class NewTweet extends Component {
     this.setState({ image_url: image_url, image: files[0] });
   }
 
+  async fetchTweet() {
+    let formPayLoad = new FormData();
+    formPayLoad.append('title', this.state.title);
+    formPayLoad.append('image', this.state.image);
+    formPayLoad.append('content', this.state.content);
+    formPayLoad.append('user_id', '2');
+
+    const res = await fetch('http://localhost:3001/tweets', {
+      credentials: 'same-origin',
+      headers: {},
+      method: 'POST',
+      body: formPayLoad
+    });
+    const data = await (await res).json();
+    return data
+  }
+
   submitForm(e) {
     e.preventDefault()
     if (this.state.title === "") {
@@ -39,28 +56,16 @@ export default class NewTweet extends Component {
       alert("画像が必要です")
       return false
     }
-    let formPayLoad = new FormData();
-    formPayLoad.append('title', this.state.title);
-    formPayLoad.append('image', this.state.image);
-    formPayLoad.append('content', this.state.content);
-    formPayLoad.append('user_id', '2');
-
-    fetch('http://localhost:3001/tweets', {
-      credentials: 'same-origin',
-      headers: {},
-      method: 'POST',
-      body: formPayLoad
-    })
-      .then(() => {
-        console.log("成功")
-        // this.props.history.push('/')
+    this.fetchTweet()
+      .then((data) => {
+        this.props.history.push(`/tweets/${data.id}`);
       })
       .catch(error => {
         const {
           status,
           statusText
         } = error.response;
-        console.log(`Error! HTTP Status: ${status} ${statusText}`);
+        alert(`Error! HTTP Status: ${status} ${statusText}`);
       })
   }
 
