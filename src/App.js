@@ -7,6 +7,7 @@ import SignUpUser from './Components/SignUpUser';
 import SignInUser from './Components/SignInUser';
 import NewTweet from './Components/NewTweet'
 import Root from './Containers/Root';
+import ShowTweet from './Containers/ShowTweet';
 
 export default class App extends React.Component {
   render() {
@@ -26,6 +27,11 @@ export default class App extends React.Component {
               <Route exact path="/sign_up" component={SignUpUser} />
               <Route exact path="/sign_in" component={SignInUser} />
               <Route exact path="/tweets/new" component={NewTweet} />
+              <Route path="/tweets/:id"
+                render={
+                  ({ match }) => <ShowTweet tweetId={match.params.id} />
+                }
+              />
               {/* <Route exact path="/" component={requireSignIn(MyPage)} /> */}
             </Switch>
           </div>
