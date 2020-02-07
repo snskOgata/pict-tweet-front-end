@@ -6,9 +6,12 @@ export default class ShowTweet extends Component {
     this.props.onMount(this.props.tweetId);
   }
   render() {
+    const { title, image, content } = this.props
     return (
       <div>
-        <h1>TweetID:{this.props.tweetId}</h1>
+        <h1>{title}</h1>
+        <img src={`http://localhost:3001${image}`} style={{ maxWidth: '80%' }} />
+        <p>{content}</p>
       </div>
     )
   }
