@@ -31,14 +31,14 @@ export default class Header extends React.Component {
         </>
         <>
           {this.props.currentUser.isSignedIn ? (
-            <dev>
+            <div>
               <Link to='/tweets/new'>
                 <Button variant="outline-light">新規投稿</Button>
               </Link>
               <Link to='/#' onClick={this.signOut} style={{ marginLeft: '10px' }}>
                 <Button variant="outline-light">ログアウト</Button>
               </Link>
-            </dev>
+            </div>
           ) : (
               <div>
                 <Link to="/sign_up">

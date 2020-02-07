@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
-import { connect } from 'react-redux'
-import { signInUser as signIn } from '../redux-token-auth-config'
-import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signInUser as signIn } from '../redux-token-auth-config';
 
 class SignInUser extends React.Component {
   constructor(props) {
