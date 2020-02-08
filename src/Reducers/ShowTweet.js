@@ -11,8 +11,11 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case 'START_REQUEST':
       return {
-        tweetId: action.payload.tweetId,
-        tweet: undefined,
+        tweetId: undefined,
+        title: undefined,
+        image: undefined,
+        content: undefined,
+        userId: undefined,
         error: false
       };
 

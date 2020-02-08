@@ -18,6 +18,6 @@ export default class ShowTweet extends Component {
 }
 
 ShowTweet.propTypes = {
-  tweetId: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   onMount: PropTypes.func.isRequired,
 }
