@@ -58,7 +58,7 @@ export default class NewTweet extends Component {
     }
     this.fetchTweet()
       .then((data) => {
-        this.props.history.push(`/tweets/${data.id}`);
+        this.props.history.push(`/`);
       })
       .catch(error => {
         const {
@@ -74,21 +74,21 @@ export default class NewTweet extends Component {
     return (
       <div style={{ width: '50%', padding: '20px', margin: '0 auto' }}>
         <h1>新規投稿</h1>
-        <Form onSubmit={this.submitForm}>
+        <Form onSubmit={this.submitForm} style={{ textAlign: 'left', position: 'relative' }}>
           <Form.Group controlId="title">
-            <Form.Label>タイトル</Form.Label>
+            <Form.Label>タイトル(必須)</Form.Label>
             <Form.Control type="text" value={this.state.title} onChange={this.handleChangeTitle} />
           </Form.Group>
           <Form.Group controlId="image">
-            <Form.Label>投稿画像</Form.Label>
+            <Form.Label>投稿画像(必須)</Form.Label>
             <Form.Control type="file" ref="file" onChange={this.handleChangeFile} />
             <img src={this.state.image_url} style={{ maxWidth: '100%' }} />
           </Form.Group>
           <Form.Group controlId="content">
-            <Form.Label>内容:</Form.Label>
+            <Form.Label>詳細:</Form.Label>
             <Form.Control as="textarea" rows="3" value={this.state.content} onChange={this.handleChangeContent} />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" style={{ position: 'absolute', right: 'calc(50% - 37px)' }}>
             Submit
           </Button>
         </Form>

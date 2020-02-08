@@ -27,7 +27,7 @@ export default class Header extends React.Component {
     return (
       <div className='header'>
         <>
-          <Link to="/">Pict-Tweet</Link>
+          <Link to="/" className='logo'>Pict-Tweet</Link>
         </>
         <>
           {this.props.currentUser.isSignedIn ? (
