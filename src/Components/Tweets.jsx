@@ -20,8 +20,8 @@ export default class Tweets extends Component {
         <Container fluid style={{ marginTop: '40px' }}>
           <ul style={{ listStyle: 'none', paddingInlineStart: '0' }}>
             <Row style={{ justifyContent: 'center' }}>
-              <Fade big cascade>
-                {tweets.map(tweet => (
+              {tweets.map(tweet => (
+                <Fade big cascade>
                   <li key={`tweet-${tweet.id}`}>
                     <Col xs={6} md={4} lg={3}>
                       <Card style={{ width: '300px', height: '400px', marginBottom: '30px', backgroundColor: 'transparent', border: '0.5px solid white' }}>
@@ -38,8 +38,8 @@ export default class Tweets extends Component {
                       </Card>
                     </Col>
                   </li>
-                ))}
-              </Fade>
+                </Fade>
+              ))}
             </Row>
           </ul>
         </Container >
