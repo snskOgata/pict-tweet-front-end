@@ -21,8 +21,8 @@ export default class Tweets extends Component {
           <ul style={{ listStyle: 'none', paddingInlineStart: '0' }}>
             <Row style={{ justifyContent: 'center' }}>
               {tweets.map(tweet => (
-                <Fade big cascade>
-                  <li key={`tweet-${tweet.id}`}>
+                <Fade big cascade key={`tweet-${tweet.id}`}>
+                  <li>
                     <Col xs={6} md={4} lg={3}>
                       <Card style={{ width: '300px', height: '400px', marginBottom: '30px', backgroundColor: 'transparent', border: '0.5px solid white' }}>
                         <Card.Img variant="top" src={`http://localhost:3001${tweet.image}`} style={{ height: '200px', width: 'auto', maxWidth: '98%', margin: '5px auto' }} />
