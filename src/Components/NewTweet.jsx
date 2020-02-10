@@ -34,7 +34,7 @@ export default class NewTweet extends Component {
     formPayLoad.append('title', this.state.title);
     formPayLoad.append('image', this.state.image);
     formPayLoad.append('content', this.state.content);
-    formPayLoad.append('user_id', '2');
+    formPayLoad.append('user_id', this.props.currentUser.attributes.id);
 
     const res = await fetch('http://localhost:3001/tweets', {
       credentials: 'same-origin',

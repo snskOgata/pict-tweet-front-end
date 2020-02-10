@@ -35,21 +35,6 @@ class SignUpUser extends React.Component {
   handleChangePasswordConfirmation(e) {
     this.setState({ password_confirmation: e.target.value });
   }
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //   axios.post('http://localhost:3001/auth', {
-  //     name: this.state.name,
-  //     email: this.state.email,
-  //     password: this.state.password,
-  //     password_confirmation: this.state.password_confirmation,
-  //   }).catch(error => {
-  //     const {
-  //       status,
-  //       statusText
-  //     } = error.response;
-  //     console.log(`Error! HTTP Status: ${status} ${statusText}`);
-  //   });
-
 
   submitForm(e) {
     e.preventDefault()
@@ -59,9 +44,8 @@ class SignUpUser extends React.Component {
       email,
       password,
     } = this.state
-    registerUser({ name, email, password }) // <-<-<-<-<- here's the important part <-<-<-<-<-
+    registerUser({ name, email, password })
       .then(() => {
-        console.log("成功")
         this.props.history.push('/')
       })
       .catch(error => {
@@ -69,7 +53,7 @@ class SignUpUser extends React.Component {
           status,
           statusText
         } = error.response;
-        console.log(`Error! HTTP Status: ${status} ${statusText}`);
+        alert("登録できません\n入力が正しいか確認してください");
       })
   }
 

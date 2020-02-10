@@ -33,7 +33,6 @@ class SignInUser extends React.Component {
     } = this.state
     signIn({ email, password })
       .then(() => {
-        console.log("成功")
         this.props.history.push('/')
       })
       .catch(error => {
@@ -41,7 +40,7 @@ class SignInUser extends React.Component {
           status,
           statusText
         } = error.response;
-        console.log(`Error! HTTP Status: ${status} ${statusText}`);
+        alert(`ログインに失敗しました`);
       })
   }
 

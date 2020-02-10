@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './stylesheets/reset.css'
 import './stylesheets/App.css';
 import { generateRequireSignInWrapper } from "redux-token-auth";
+
 import Header from './Containers/Header';
 import SignUpUser from './Components/SignUpUser';
 import SignInUser from './Components/SignInUser';
-import NewTweet from './Components/NewTweet'
+import NewTweet from './Containers/NewTweet'
 import Root from './Containers/Root';
 import ShowTweet from './Containers/ShowTweet';
+
 import bgImage from './images/black-abstract-wallpaper.jpg';
 
 export default class App extends React.Component {

@@ -31,7 +31,10 @@ export default class Header extends React.Component {
         </>
         <>
           {this.props.currentUser.isSignedIn ? (
-            <div>
+            <div style={{ display: 'flex' }}>
+              <div style={{ marginRight: '20px', lineHeight: '60px' }}>
+                User：{this.props.currentUser.attributes.name}
+              </div>
               <Link to='/tweets/new'>
                 <Button variant="outline-light">新規投稿</Button>
               </Link>
