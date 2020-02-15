@@ -9,8 +9,8 @@ export default class ShowTweet extends Component {
     const { title, image, content } = this.props
     return (
       <div>
-        <h1>{title}</h1>
-        <img src={`http://localhost:3001${image}`} style={{ maxWidth: '80%' }} />
+        <img src={`http://localhost:3001${image}`} style={{ maxHeight: '600px', maxWidth: '80%' }} />
+        <h1 style={{ fontSize: '32px' }}>{title}</h1>
         <p>{content}</p>
       </div>
     )
