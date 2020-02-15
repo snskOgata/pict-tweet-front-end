@@ -24,13 +24,10 @@ export default class Tweets extends Component {
                 <Fade big cascade key={`tweet-${tweet.id}`}>
                   <li>
                     <Col xs={6} md={4} lg={3}>
-                      <Card style={{ width: '300px', height: '400px', marginBottom: '30px', backgroundColor: 'transparent', border: '0.5px solid white' }}>
+                      <Card style={{ width: '300px', height: '320px', marginBottom: '30px', backgroundColor: 'transparent', border: '0.5px solid white' }}>
                         <Card.Img variant="top" src={`http://localhost:3001${tweet.image}`} style={{ height: '200px', width: 'auto', maxWidth: '98%', margin: '5px auto' }} />
                         <Card.Body>
                           <Card.Title>{tweet.title}</Card.Title>
-                          <Card.Text style={{ height: '65px', overflow: 'hidden' }}>
-                            {tweet.content}
-                          </Card.Text>
                           <Link to={`/tweets/${tweet.id}`}>
                             <Button variant="outline-light" >詳細ページ</Button>
                           </Link>
